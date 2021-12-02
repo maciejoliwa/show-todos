@@ -13,7 +13,7 @@ Just download *show-todos.jar* from the bin directory
 
 ## Disclaimer
 Since this is one of my first Clojure projects that I decided to publish, any
-criticism is well welcomed!
+criticism is well welcome!
 
 <br>
 
