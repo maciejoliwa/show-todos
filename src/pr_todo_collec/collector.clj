@@ -1,8 +1,7 @@
 (ns pr-todo-collec.collector
   (:require [clojure.string :as str]))
 
-; TODO - Add support for "" comments
-; TODO - Add support for FIXME, FIXME, ! etc.
+; TODO - Add support for "" comments.
 
 (defn comment?
   [^String line]

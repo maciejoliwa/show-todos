@@ -53,7 +53,5 @@
 
 (defn -main
   [& args]
-   (let [todos (map #(get-todos (get-clojure-files %)) args)]
-     (clojure.pprint/pprint todos)
-     (doseq [todo todos] (print-results todo))))
-    
+  (let [todos (map #(get-todos (get-clojure-files %)) args)]
+    (doseq [todo todos] (print-results todo))))
