@@ -26,9 +26,9 @@
     (filter (partial clojure-file? clj-extensions) (map #(str (clojure.java.io/file directory (.getName %))) files))))
 
 (defn get-todos
-  "First, it takes a list of file names, then it transforms it into a map of filename and its content like so: 
+  "First, it takes a list of file names, it transforms it into a list of vectors likes this:
   -> '('test.clj', 'core.clj')
-  -> { 'test.clj' 'file-contents' 'core.clj' 'file-contents' }
+  -> '(['test.clj' 'file-content], ['core.clj' 'file-content']))
 
   After that, it filters file contents looking for lines that are todos, it returns a list of vectors like this:
   '(['filename' '(';todo 1' ';todo2')])
