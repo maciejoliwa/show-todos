@@ -4,6 +4,9 @@
   (:gen-class))
 
 (def clj-extensions '("clj", "cljs", "cljc"))
+(def color-green "\033[92m")
+(def color-yellow "\033[93m")
+(def color-reset "\033[0m")
 
 (defn- clojure-file?
   "Checks if a given string filename is a clojure file"
@@ -39,15 +42,14 @@
   [todos]
   (doseq [todo todos] (println "\t- " (str/triml todo))))
 
-; TODO - make it more readable, probably move colors into separate variables (or a map of keywords and string perhaps?)
 (defn print-results
   [todos]
   (doseq [v todos]
     (let [filename (first v) file-todos (last v) todo-count (count file-todos)]
       (cond
-        (= todo-count 1) (do (println (str "1 TODO found in \033[92m" filename "\033[0m:")) (print-todos file-todos))
-        (> todo-count 1) (do (println (str todo-count " TODOS found in \033[92m" filename "\033[0m:")) (print-todos file-todos))
-        (zero? todo-count) (println (str "\033[93mNo TODOS found in \033[92m" filename "\033[0m"))))))
+        (= todo-count 1) (do (println (str "1 TODO found in " color-green filename color-reset ":")) (print-todos file-todos))
+        (> todo-count 1) (do (println (str todo-count " TODOS found in " color-green filename color-reset ":")) (print-todos file-todos))
+        (zero? todo-count) (println (str color-yellow "No TODOS found in " color-green filename color-reset))))))
 
 (defn -main
   [& args]
