@@ -9,7 +9,7 @@ Just download *show-todos.jar* from the bin directory
 
 ## Usage
 
-    $ java -jar show-todos.jar <directory>
+    $ java -jar show-todos.jar <directories>
 
 ## Disclaimer
 Since this is one of my first Clojure projects that I decided to publish, any
