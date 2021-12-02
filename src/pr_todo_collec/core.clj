@@ -50,7 +50,6 @@
         (zero? todo-count) (println (str "\033[93mNo TODOS found in \033[92m" filename "\033[0m"))))))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
   (let [folder (first args)]
     (if (nil? folder)
