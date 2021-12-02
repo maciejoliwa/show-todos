@@ -23,7 +23,7 @@
   ; TODO - Make it check subfolders
   ; TODO - Make it return nil if there are no Clojure files in a given directory
   (let [dir (clojure.java.io/file directory) files (file-seq dir)]
-    (filter (partial clojure-file? clj-extensions) (map #(str (clojure.java.io/file directory (.getName %))) files))))
+    (filter (partial clojure-file? clj-extensions) (map #(str (.getAbsolutePath (clojure.java.io/file directory (.getName %)))) files))))
 
 (defn get-todos
   "First, it takes a list of file names, it transforms it into a list of vectors likes this:
