@@ -53,8 +53,7 @@
 
 (defn -main
   [& args]
-  (let [folder (first args)]
-    (if (nil? folder)
-      (println "Not a directory")
-      (let [todos (get-todos (get-clojure-files folder))]
-        (print-results todos)))))
+   (let [todos (map #(get-todos (get-clojure-files %)) args)]
+     (clojure.pprint/pprint todos)
+     (doseq [todo todos] (print-results todo))))
+    
