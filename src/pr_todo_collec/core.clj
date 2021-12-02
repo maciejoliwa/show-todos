@@ -31,8 +31,8 @@
   '(['filename' '(';todo 1' ';todo2')])
   "
   [file-list]
-  (let [result-map (into {} (map #(vector % (str/split-lines (slurp %))) file-list))]
-    (map #(vector (first %) (filter collector/todo? (last %))) (seq result-map))))
+  (let [result-map (map #(vector % (str/split-lines (slurp %))) file-list)]
+    (map #(vector (first %) (filter collector/todo? (last %))) result-map)))
 
 (defn print-todos
   "Prints all todos of one file"
